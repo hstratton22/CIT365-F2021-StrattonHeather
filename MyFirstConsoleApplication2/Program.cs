@@ -22,7 +22,9 @@ namespace MyFirstConsoleApplication2
             ChristmasCountdown(date);
 
             //glazer app
-            getGlazer();
+            //
+            //getGlazer();
+            GlazerApp.RunExample();
 
             //prompt for exit
             PromptForExit();
@@ -56,13 +58,8 @@ namespace MyFirstConsoleApplication2
             Console.ReadKey(true);// hides input
 
 
-        }/// <summary>
-        /// RunExample from reading
-        /// </summary>
-       private static void getGlazer()
-        {
-            GlazerApp.RunExample();
-        }/// <summary>
+        }
+        /// <summary>
         /// prompt user for exit by pressing a key
         /// </summary>
         private static void PromptForExit()
