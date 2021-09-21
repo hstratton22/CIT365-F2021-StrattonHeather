@@ -229,24 +229,11 @@ namespace MathQuiz
         {
 
         }
-       
-        /// <summary>
-        /// Monitors NumericUpDown for correct answer and provides sound
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /*private void checkForRightAnswer(object sender, EventArgs e)
-        {
-           
-            if (CheckAnyAnswer())
-            {
-                                //play sound
-               // System.Media.SystemSounds.Beep.Play();
-                //MessageBox.Show("Correct!");
-
-            }
-        }*/
-
+       /// <summary>
+       /// check addition answer
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private void checkForPlus(object sender, EventArgs e)
         {
             if (addend1 + addend2 == sum.Value)
@@ -255,7 +242,11 @@ namespace MathQuiz
             //else
             //return false;
         }
-
+        /// <summary>
+        /// check subtraction answer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkForSubtract(object sender, EventArgs e)
         {
              if (minuend - subtrahend == difference.Value)
@@ -263,13 +254,21 @@ namespace MathQuiz
          
         
         }
-
+        /// <summary>
+        /// check multiplication answer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkForMultiply(object sender, EventArgs e)
         {
             if (multiplicand * multiplier == product.Value)
                 System.Media.SystemSounds.Beep.Play();
         }
-
+        /// <summary>
+        /// check division answer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkForDivide(object sender, EventArgs e)
         {
             if (dividend / divisor == quotient.Value)
