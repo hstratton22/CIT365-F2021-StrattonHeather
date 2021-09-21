@@ -195,6 +195,7 @@ namespace MathQuiz
             else
                 return false;
         }
+        
         /// <summary>
         /// Checks full length of response
         /// </summary>
@@ -234,16 +235,45 @@ namespace MathQuiz
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void checkForRightAnswer(object sender, EventArgs e)
+        /*private void checkForRightAnswer(object sender, EventArgs e)
         {
            
             if (CheckAnyAnswer())
             {
                                 //play sound
-                System.Media.SystemSounds.Beep.Play();
+               // System.Media.SystemSounds.Beep.Play();
                 //MessageBox.Show("Correct!");
 
             }
+        }*/
+
+        private void checkForPlus(object sender, EventArgs e)
+        {
+            if (addend1 + addend2 == sum.Value)
+                System.Media.SystemSounds.Beep.Play();
+            //return true;
+            //else
+            //return false;
+        }
+
+        private void checkForSubtract(object sender, EventArgs e)
+        {
+             if (minuend - subtrahend == difference.Value)
+                System.Media.SystemSounds.Beep.Play();
+         
+        
+        }
+
+        private void checkForMultiply(object sender, EventArgs e)
+        {
+            if (multiplicand * multiplier == product.Value)
+                System.Media.SystemSounds.Beep.Play();
+        }
+
+        private void checkForDivide(object sender, EventArgs e)
+        {
+            if (dividend / divisor == quotient.Value)
+                     System.Media.SystemSounds.Beep.Play();
         }
     }
 }
