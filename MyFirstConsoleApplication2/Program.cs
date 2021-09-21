@@ -50,7 +50,7 @@ namespace MyFirstConsoleApplication2
         {
             //var date = DateTime.Now;
             Console.WriteLine($"Today's date is: {date:d}");
-            DateTime end = new DateTime(2021, 12, 25);
+            DateTime end = new DateTime(2021, 12, 25);//date:year;
             TimeSpan difference = end - date;
             //var daysToChristmas = //calculate days until Christmas, 
             Console.WriteLine($"There are {difference.Days} days until Christmas!");

@@ -68,11 +68,12 @@ namespace MathQuiz
             // timeLabel
             // 
             this.timeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeLabel.Location = new System.Drawing.Point(314, 8);
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(100, 38);
             this.timeLabel.TabIndex = 0;
+            this.timeLabel.Click += new System.EventHandler(this.timeLabel_Click);
             // 
             // label1
             // 
@@ -131,6 +132,7 @@ namespace MathQuiz
             this.sum.Name = "sum";
             this.sum.Size = new System.Drawing.Size(100, 35);
             this.sum.TabIndex = 2;
+            this.sum.ValueChanged += new System.EventHandler(this.checkForRightAnswer);
             this.sum.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // difference
@@ -140,7 +142,7 @@ namespace MathQuiz
             this.difference.Name = "difference";
             this.difference.Size = new System.Drawing.Size(100, 35);
             this.difference.TabIndex = 3;
-            this.difference.ValueChanged += new System.EventHandler(this.difference_ValueChanged);
+            this.difference.ValueChanged += new System.EventHandler(this.checkForRightAnswer);
             this.difference.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label2
@@ -190,6 +192,7 @@ namespace MathQuiz
             this.product.Name = "product";
             this.product.Size = new System.Drawing.Size(100, 35);
             this.product.TabIndex = 4;
+            this.product.ValueChanged += new System.EventHandler(this.checkForRightAnswer);
             this.product.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label6
@@ -239,6 +242,7 @@ namespace MathQuiz
             this.quotient.Name = "quotient";
             this.quotient.Size = new System.Drawing.Size(100, 35);
             this.quotient.TabIndex = 5;
+            this.quotient.ValueChanged += new System.EventHandler(this.checkForRightAnswer);
             this.quotient.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label10

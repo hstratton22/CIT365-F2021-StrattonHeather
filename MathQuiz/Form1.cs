@@ -43,6 +43,9 @@ namespace MathQuiz
         // remaining time.
         int timeLeft;
 
+        //handles numChecker updown
+        //public event EventHandler ValueChanged;
+
         public Form1()
         {
            
@@ -101,15 +104,27 @@ namespace MathQuiz
             timeLeft = 30;
             timeLabel.Text = "30 seconds";
             timer1.Start();
+
+
         }
 
-
+        /// <summary>
+        /// Starts quiz
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void startButton_Click(object sender, EventArgs e)
         {
             StartTheQuiz();
+            //System.Media.SystemSounds.Beep.Play();
             startButton.Enabled = false;
         }
-
+        /// <summary>
+        /// Checks for all correct answers and stops timer and displays message or continues countdown
+        /// until 5 seconds which then changes times background. Displays correct answers if not solved by user at finish.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (CheckTheAnswer())
@@ -142,7 +157,9 @@ namespace MathQuiz
                 // a MessageBox, and fill in the answers.
                 timer1.Stop();
                 timeLabel.Text = "Time's up!";
+                timeLabel.BackColor = Color.White;
                 MessageBox.Show("You didn't finish in time.", "Sorry!");
+                
                 sum.Value = addend1 + addend2;
                 difference.Value = minuend - subtrahend;
                 product.Value = multiplicand * multiplier;
@@ -164,7 +181,25 @@ namespace MathQuiz
             else
                 return false;
         }
-
+        /// <summary>
+        /// Check if any answer is correct
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckAnyAnswer()
+        {
+            if ((addend1 + addend2 == sum.Value)
+       || (minuend - subtrahend == difference.Value)
+        || (multiplicand * multiplier == product.Value)
+        || (dividend / divisor == quotient.Value))
+                return true;
+            else
+                return false;
+        }
+        /// <summary>
+        /// Checks full length of response
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void answer_Enter(object sender, EventArgs e)
         {
             // Select the whole answer in the NumericUpDown control.
@@ -177,10 +212,7 @@ namespace MathQuiz
             }
         }
 
-        private void difference_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void label8_Click(object sender, EventArgs e)
         {
@@ -190,6 +222,28 @@ namespace MathQuiz
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void timeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+       
+        /// <summary>
+        /// Monitors NumericUpDown for correct answer and provides sound
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void checkForRightAnswer(object sender, EventArgs e)
+        {
+           
+            if (CheckAnyAnswer())
+            {
+                                //play sound
+                System.Media.SystemSounds.Beep.Play();
+                //MessageBox.Show("Correct!");
+
+            }
         }
     }
 }
