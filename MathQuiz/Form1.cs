@@ -236,11 +236,9 @@ namespace MathQuiz
        /// <param name="e"></param>
         private void checkForPlus(object sender, EventArgs e)
         {
-            if (addend1 + addend2 == sum.Value)
+            if(addend1 + addend2 == sum.Value)
                 System.Media.SystemSounds.Beep.Play();
-            //return true;
-            //else
-            //return false;
+
         }
         /// <summary>
         /// check subtraction answer
