@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace MegaDesk_Stratton
 {
-    public partial class Form1 : Form
+    public partial class SearchQuotes : Form
     {
-        public Form1()
+        public SearchQuotes()
         {
             InitializeComponent();
+        }
+
+        private void searchQuotesClose_Click(object sender, EventArgs e)
+        {
+            MainMenu viewMainMenu = (MainMenu)Tag;
+            viewMainMenu.Show();
+            this.Close();
         }
     }
 }
