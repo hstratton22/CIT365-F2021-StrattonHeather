@@ -12,16 +12,21 @@ namespace MegaDesk_Stratton
 {
     public partial class AddQuote : Form
     {
-        private readonly DeskQuote _newQuote = new DeskQuote();
+        //private readonly DeskQuote _newQuote = new DeskQuote();
         //DeskQuote newQuote = new DeskQuote();
-        private readonly Desk _newDesk = new Desk();
+        //private readonly Desk _newDesk = new Desk();
         //private System.Windows.Forms.ErrorProvider widthErrorProvider;
+        private DeskQuote _newQuote;
+        private Desk _newDesk;
 
-       
 
 
-        public AddQuote()
+
+
+        public AddQuote(Desk d, DeskQuote q)
         {
+            _newDesk = d;
+            _newQuote = q;
             //desktopMatComboBox.Items.AddRange(Enum.GetNames(typeof(DesktopMaterial)));
             InitializeComponent();
         }
@@ -59,8 +64,10 @@ namespace MegaDesk_Stratton
         private void submitQuoteBtn_Click(object sender, EventArgs e)
         {
             createDeskQuote();
-            var myQuote = new DeskQuote(_newDesk, _newQuote);
-            DisplayQuote viewDisplayQuote = new DisplayQuote(myQuote);
+            //var myQuote = new DeskQuote(_newDesk, _newQuote);
+            //MessageBox.Show(myQuote.ToString());
+            var viewDisplayQuote = new DisplayQuote(_newQuote);
+           // DisplayQuote viewDisplayQuote = new DisplayQuote(myQuote);
             viewDisplayQuote.Tag = this;
             viewDisplayQuote.Show(this);
             Hide();

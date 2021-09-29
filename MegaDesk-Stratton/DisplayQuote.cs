@@ -19,7 +19,7 @@ namespace MegaDesk_Stratton
         public DisplayQuote(DeskQuote dq)
         {
             _deskQuote = dq;
-            displayCustNameBox.Text = _deskQuote.GetCustName();
+            displayCustNameBox.Text = this._deskQuote.GetCustName();
             displayQuoteDrawerCostBox.Text = _deskQuote.CalcDrawerCost().ToString();
             displayQuoteRushCostBox.Text = _deskQuote.CalcRushCost().ToString();
             displayQuoteRushBox.Text = _deskQuote.GetRush().ToString();

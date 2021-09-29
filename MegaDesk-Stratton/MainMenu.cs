@@ -12,6 +12,8 @@ namespace MegaDesk_Stratton
 {
     public partial class MainMenu : Form
     {
+        private readonly DeskQuote _newQuote = new DeskQuote();
+        private readonly Desk _newDesk = new Desk();
         public MainMenu()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace MegaDesk_Stratton
 
         private void addNewQuotesBtn_Click(object sender, EventArgs e)
         {
-            AddQuote viewAddQuote = new AddQuote();
+            AddQuote viewAddQuote = new AddQuote(_newDesk, _newQuote);
             viewAddQuote.Tag = this;
             viewAddQuote.Show(this);
             this.Hide();

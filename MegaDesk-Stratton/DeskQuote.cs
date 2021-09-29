@@ -30,7 +30,7 @@ namespace MegaDesk_Stratton
             
     }
         
-        public string GetCustName() { return custName; }
+        public string GetCustName() { return this.custName; }
         public void SetCustName(string name) { custName = name; }
         public void SetDate(DateTime date)
         {
