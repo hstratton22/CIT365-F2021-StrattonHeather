@@ -44,15 +44,7 @@ namespace MegaDesk_Stratton
 
             _newQuote.SetDesk(_newDesk);
 
-            //newDesk.SetDesktopMaterial()//TryParse("desktopMatComboBox.Text", out DesktopMaterial );
-           // if (rushComboBox.Text != null) {
-            //    try { _newQuote.SetRush(Convert.ToInt32(rushComboBox.Text)); }
-           //     catch (InvalidCastException ie) { }
-            //    }
-            
-            // MessageBox.Show(newQuote.ToString());
-
-          
+                     
         }
          
 
