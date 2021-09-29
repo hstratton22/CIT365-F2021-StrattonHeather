@@ -78,34 +78,52 @@ namespace MegaDesk_Stratton
         }
 
         private void deskWidthInput_Validating(object sender, CancelEventArgs e)
-        { 
+        {
 
             if (deskWidthInput.Text != null && deskWidthInput.Text != string.Empty)
             {
-                             
-                    if (!ValidWidth(deskWidthInput.Text))
+                //var deskWidth = deskWidthInput.Text;
+                //if (Char.IsDigit(deskWidth, 0))
+                // {
+                for (int ch = 0; ch < deskWidthInput.Text.Length; ch++)
+                {
+                    if (!Char.IsDigit(deskWidthInput.Text[ch]))
                     {
+                        //MessageBox.Show("not digit!");
+                        
+                        e.Cancel= true;
+                        deskWidthInput.Select(0, deskWidthInput.Text.Length);
+                        deskWidthInput.Focus();
 
-                        errorProvider2.SetError(deskWidthInput, $"Width must be greater than {_newDesk.GetMINWIDTH()} and less than {_newDesk.GetMAXWIDTH()}");
+                        errorProvider2.SetError(deskWidthInput, "Enter valid number");
                     }
                     else
                     {
-                        errorProvider2.SetError(this.deskWidthInput, String.Empty);
+                        errorProvider2.SetError(deskWidthInput, "");//Please enter a number
+                        if (!ValidWidth(deskWidthInput.Text))
+                        {
+
+                            errorProvider2.SetError(deskWidthInput, $"Width must be greater than {_newDesk.GetMINWIDTH()} and less than or equal to {_newDesk.GetMAXWIDTH()}");
+                        }
+                        else
+                        {
+                            errorProvider2.SetError(deskWidthInput, String.Empty);//"Valid");//);//this.
+                        }
+
+                        
                     }
                 }
-            
-        }
+                }
+          
+}
         public bool ValidWidth(string widthInput)
         {
-            try
-            {
-                var parsedWidth = int.Parse(widthInput);
-                if (_newDesk.ValidatedWidth(parsedWidth))
+            
+                if (_newDesk.ValidatedWidth(int.Parse(widthInput)))
                 { return true; }
                 else
                 { return false; }
-            }
-            catch (ArgumentException ae) { return false; }
+            
 
          }
 
@@ -125,7 +143,7 @@ namespace MegaDesk_Stratton
             {
                 if (!ValidDepth(deskDepthInput.Text))
                 {
-                    errorProvider3.SetError(deskDepthInput, $"Depth must be greater than {_newDesk.GetMINDEPTH()} and less than {_newDesk.GetMAXDEPTH() }");
+                    errorProvider3.SetError(deskDepthInput, $"Depth must be greater than {_newDesk.GetMINDEPTH()} and less than or equal to {_newDesk.GetMAXDEPTH() }");
                 }
                 else
                 {
@@ -138,6 +156,7 @@ namespace MegaDesk_Stratton
             { return true; }
             else return false;
         }
+        /*
         private bool notNumber = false;
         private void deskWidthInput_KeyDown(object sender, KeyEventArgs e)
         {
@@ -157,11 +176,12 @@ namespace MegaDesk_Stratton
                 notNumber = true;
             }
         }
-
+        
         private void deskWidthInput_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (notNumber) e.Handled = true;
         }
+        */
         private bool depthNotNumber = false;
         private void deskDepthInput_KeyDown(object sender, KeyEventArgs e)
         {
