@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MegaDesk_Stratton
 {
-    class Desk
+    public class Desk
     {
         private const int MINWIDTH = 24;
         private const int MAXWIDTH = 96;
@@ -21,6 +21,10 @@ namespace MegaDesk_Stratton
         private DesktopMaterial desktopMaterial;
 
         public Desk() { }
+        public int GetMINWIDTH() { return MINWIDTH; }
+        public int GetMAXWIDTH() { return MAXWIDTH; }
+        public int GetMINDEPTH() { return MINDEPTH; }
+        public int GetMAXDEPTH() { return MAXDEPTH; }
         public int GetWidth() { return width; }
         public void SetWidth(int widthInput) { if (ValidatedWidth(widthInput)) { width = widthInput; } }
         public int GetDepth() { return depth; }
@@ -47,7 +51,7 @@ namespace MegaDesk_Stratton
 
 
     }
-    enum DesktopMaterial
+    public enum DesktopMaterial
     {
         laminate, oak, pine, rosewood, veneer
     }

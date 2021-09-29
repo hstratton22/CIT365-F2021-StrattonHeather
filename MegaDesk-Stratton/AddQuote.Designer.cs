@@ -91,6 +91,7 @@ namespace MegaDesk_Stratton
             this.deskWidthInput.Name = "deskWidthInput";
             this.deskWidthInput.Size = new System.Drawing.Size(150, 26);
             this.deskWidthInput.TabIndex = 2;
+            this.deskWidthInput.Validating += new System.ComponentModel.CancelEventHandler(this.deskWidthInput_Validating);
             // 
             // deskDepthLbl
             // 

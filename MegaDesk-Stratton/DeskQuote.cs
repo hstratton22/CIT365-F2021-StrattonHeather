@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace MegaDesk_Stratton
 {
-    class DeskQuote
+    public class DeskQuote
     {
         private string custName;
-        private int rush = 14;
+        private int rush ;
         private int quote;
         private const int BASECOST = 200;
         private const int PERDRAWER = 50;
@@ -17,8 +17,19 @@ namespace MegaDesk_Stratton
         private const int OVERSIZESTARTNUM = 1000;
         private const int OVERSIZEHIGHNUM = 2000;
         private DateTime date;// = DateTime.Now;
-        private Desk Desk;
-        //public DeskQuote() { }
+        private readonly Desk Desk;
+
+        public DeskQuote()
+        {
+        }
+        public DeskQuote(Desk desk) {
+            this.Desk = desk;
+        }
+        public DeskQuote( Desk desk, DeskQuote newDeskQuote)//Desk desk
+        {
+            
+    }
+        
         public string GetCustName() { return custName; }
         public void SetCustName(string name) { custName = name; }
         public void SetDate(DateTime date)
@@ -29,7 +40,7 @@ namespace MegaDesk_Stratton
 
         public int GetRush() { return rush; }
         public void SetRush(int rushNum) { rushNum = rush; }
-        public void SetDesk(Desk desk) { Desk = desk; }
+       //public void SetDesk(Desk desk) { Desk = desk; }
         public Desk GetDesk() { return Desk; }
 
         public int GetQuote() { return quote; }

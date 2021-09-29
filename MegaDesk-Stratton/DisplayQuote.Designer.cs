@@ -123,6 +123,7 @@ namespace MegaDesk_Stratton
             this.displayQuoteWidthBox.TabIndex = 5;
             this.displayQuoteWidthBox.Text = "width";
             this.displayQuoteWidthBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            //this.displayQuoteWidthBox.Click += new System.EventHandler(this.displayQuoteWidthBox_Click);
             // 
             // displayQuoteDepthLbl
             // 
