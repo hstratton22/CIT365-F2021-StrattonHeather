@@ -82,15 +82,13 @@ namespace MegaDesk_Stratton
 
             if (deskWidthInput.Text != null && deskWidthInput.Text != string.Empty)
             {
-                //var deskWidth = deskWidthInput.Text;
-                //if (Char.IsDigit(deskWidth, 0))
-                // {
+                
                 for (int ch = 0; ch < deskWidthInput.Text.Length; ch++)
                 {
-                    if (!Char.IsDigit(deskWidthInput.Text[ch]))
+                    if (!Char.IsDigit(deskWidthInput.Text[ch]) && (!Char.IsControl(deskWidthInput.Text[ch])))
                     {
                         //MessageBox.Show("not digit!");
-                        
+                        //can still submit although not valid....
                         e.Cancel= true;
                         deskWidthInput.Select(0, deskWidthInput.Text.Length);
                         deskWidthInput.Focus();
@@ -103,7 +101,7 @@ namespace MegaDesk_Stratton
                         if (!ValidWidth(deskWidthInput.Text))
                         {
 
-                            errorProvider2.SetError(deskWidthInput, $"Width must be greater than {_newDesk.GetMINWIDTH()} and less than or equal to {_newDesk.GetMAXWIDTH()}");
+                            errorProvider2.SetError(deskWidthInput, $"Width must be greater than or equal to {_newDesk.GetMINWIDTH()} and less than or equal to {_newDesk.GetMAXWIDTH()}");
                         }
                         else
                         {
@@ -114,6 +112,10 @@ namespace MegaDesk_Stratton
                     }
                 }
                 }
+            else
+            {
+                errorProvider2.SetError(deskWidthInput, "Enter valid number");
+            }
           
 }
         public bool ValidWidth(string widthInput)
@@ -143,12 +145,16 @@ namespace MegaDesk_Stratton
             {
                 if (!ValidDepth(deskDepthInput.Text))
                 {
-                    errorProvider3.SetError(deskDepthInput, $"Depth must be greater than {_newDesk.GetMINDEPTH()} and less than or equal to {_newDesk.GetMAXDEPTH() }");
+                    errorProvider3.SetError(deskDepthInput, $"Depth must be greater than or equal to {_newDesk.GetMINDEPTH()} and less than or equal to {_newDesk.GetMAXDEPTH() }");
                 }
                 else
                 {
                     errorProvider3.SetError(deskDepthInput, string.Empty);
                 }
+            }
+            else
+            {
+                errorProvider3.SetError(deskDepthInput, "Enter a valid number.");
             }
         }
         public bool ValidDepth(string depthInput)
