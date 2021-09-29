@@ -22,7 +22,7 @@ namespace MegaDesk_Stratton
 
         public AddQuote()
         {
-            
+            //desktopMatComboBox.Items.AddRange(Enum.GetNames(typeof(DesktopMaterial)));
             InitializeComponent();
         }
         public void createDeskQuote()
@@ -38,6 +38,8 @@ namespace MegaDesk_Stratton
             _newDesk.SetWidth(int.Parse(deskWidthInput.Text));
             _newDesk.SetDepth(int.Parse(deskDepthInput.Text));
             _newDesk.SetDrawerCount(Convert.ToInt32(drawersUpDown.Value));
+            var surfaceMat = desktopMatComboBox.Text;
+            MessageBox.Show(surfaceMat);
            
 
             _newQuote.SetDesk(_newDesk);
@@ -212,6 +214,15 @@ namespace MegaDesk_Stratton
         {
             if (depthNotNumber) e.Handled = true;
         }
+
+       /* private void desktopMatComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {//not set to instance of object?
+            ComboBox cmb = (ComboBox)sender;
+            int selectedIndex = cmb.SelectedIndex;
+            int selectedValue = (int)cmb.SelectedValue;
+            MessageBox.Show( selectedIndex + ", " + selectedValue);
+            
+        }*/
     }
     
 }

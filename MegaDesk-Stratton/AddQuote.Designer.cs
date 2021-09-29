@@ -99,8 +99,6 @@ namespace MegaDesk_Stratton
             this.deskWidthInput.Name = "deskWidthInput";
             this.deskWidthInput.Size = new System.Drawing.Size(150, 26);
             this.deskWidthInput.TabIndex = 2;
-            //this.deskWidthInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.deskWidthInput_KeyDown);
-           // this.deskWidthInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.deskWidthInput_KeyPress);
             this.deskWidthInput.Validating += new System.ComponentModel.CancelEventHandler(this.deskWidthInput_Validating);
             // 
             // deskDepthLbl
@@ -160,11 +158,11 @@ namespace MegaDesk_Stratton
             this.desktopMatComboBox.FormattingEnabled = true;
             this.desktopMatComboBox.ItemHeight = 20;
             this.desktopMatComboBox.Items.AddRange(new object[] {
-            "Laminate $100",
-            "Oak $200",
-            "Pine $50",
-            "Rosewood $300",
-            "Veneer $125"});
+            "Laminate",
+            "Oak",
+            "Pine",
+            "Rosewood",
+            "Veneer"});
             this.desktopMatComboBox.Location = new System.Drawing.Point(209, 198);
             this.desktopMatComboBox.Name = "desktopMatComboBox";
             this.desktopMatComboBox.Size = new System.Drawing.Size(150, 28);
