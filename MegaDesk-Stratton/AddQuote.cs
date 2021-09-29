@@ -33,7 +33,7 @@ namespace MegaDesk_Stratton
             //date
             _newQuote.SetDate(DateTime.Now);
             dateLbl.Text = DateTime.Now.ToString("dd MMMM yyyy");// dd MM//newQuote.GetDate().ToString() ;//
-
+            
             _newQuote.SetCustName(custNameInput.Text);
             _newDesk.SetWidth(int.Parse(deskWidthInput.Text));
             _newDesk.SetDepth(int.Parse(deskDepthInput.Text));
@@ -50,14 +50,7 @@ namespace MegaDesk_Stratton
             
             // MessageBox.Show(newQuote.ToString());
 
-           // widthErrorProvider = new System.Windows.Forms.ErrorProvider();
-            //widthErrorProvider.SetIconAlignment(this.deskWidthInput, ErrorIconAlignment.MiddleRight);
-           // widthErrorProvider.SetIconPadding(this.deskWidthInput, 2);
-            //widthErrorProvider.BlinkRate = 1000;
-            //widthErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.AlwaysBlink;
-
-
-
+          
         }
          
 
@@ -78,42 +71,121 @@ namespace MegaDesk_Stratton
             viewDisplayQuote.Show(this);
             Hide();
 
-            //how to send newQuote object to DisplayQuote??
+            //how to send newQuote object to DisplayQuote with info??
             
            // this.Close();
 
         }
 
         private void deskWidthInput_Validating(object sender, CancelEventArgs e)
-        { //if (!(Control.ModifierKeys == Keys.Shift) && (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9)){
-          //}
-            /*string errorMsg = "";
-            if(deskWidthInput != null) { 
+        { 
 
-            if (!ValidWidth(deskWidthInput.Text, out errorMsg))
+            if (deskWidthInput.Text != null && deskWidthInput.Text != string.Empty)
             {
-                e.Cancel = true;
-                deskWidthInput.Select(0, deskWidthInput.Text.Length);
-                this.widthErrorProvider.SetError(deskWidthInput, errorMsg);
+                             
+                    if (!ValidWidth(deskWidthInput.Text))
+                    {
+
+                        errorProvider2.SetError(deskWidthInput, $"Width must be greater than {_newDesk.GetMINWIDTH()} and less than {_newDesk.GetMAXWIDTH()}");
+                    }
+                    else
+                    {
+                        errorProvider2.SetError(this.deskWidthInput, String.Empty);
+                    }
+                }
+            
+        }
+        public bool ValidWidth(string widthInput)
+        {
+            try
+            {
+                var parsedWidth = int.Parse(widthInput);
+                if (_newDesk.ValidatedWidth(parsedWidth))
+                { return true; }
+                else
+                { return false; }
             }
+            catch (ArgumentException ae) { return false; }
+
+         }
+
+        private void custNameInput_Validating(object sender, CancelEventArgs e)
+        {
+            if(custNameInput.Text == string.Empty)
+            { errorProvider1.SetError(custNameInput, "Name is required."); }
             else
             {
-                widthErrorProvider.SetError(this.deskWidthInput, String.Empty);
+                errorProvider1.SetError(custNameInput, string.Empty);
             }
-            }*/
         }
-        public bool ValidWidth(string widthInput, out string errorMessage)
-        {
-            // if (widthInput > newDesk.M)
-            if (_newDesk.ValidatedWidth(int.Parse(widthInput)))
-            {
-                errorMessage = "";
-                return true;
 
+        private void deskDepthInput_Validating(object sender, CancelEventArgs e)
+        {
+            if(deskDepthInput.Text != null && deskDepthInput.Text != string.Empty)
+            {
+                if (!ValidDepth(deskDepthInput.Text))
+                {
+                    errorProvider3.SetError(deskDepthInput, $"Depth must be greater than {_newDesk.GetMINDEPTH()} and less than {_newDesk.GetMAXDEPTH() }");
+                }
+                else
+                {
+                    errorProvider3.SetError(deskDepthInput, string.Empty);
+                }
             }
-            else { errorMessage = $"Width must be greater than {_newDesk.GetMINWIDTH()} and less than {_newDesk.GetMAXWIDTH()}"; } ;
-            return false;
-    }
+        }
+        public bool ValidDepth(string depthInput)
+        { if (_newDesk.ValidatedDepth(int.Parse(depthInput)))
+            { return true; }
+            else return false;
+        }
+        private bool notNumber = false;
+        private void deskWidthInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            notNumber = false;
+            if (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9)
+            {
+                if (e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9)
+                {
+                    if(e.KeyCode != Keys.Back)
+                    {
+                        notNumber = true;
+                    }
+                }
+            }
+            if (Control.ModifierKeys == Keys.Shift)
+            {
+                notNumber = true;
+            }
+        }
+
+        private void deskWidthInput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (notNumber) e.Handled = true;
+        }
+        private bool depthNotNumber = false;
+        private void deskDepthInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            depthNotNumber = false;
+            if (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9)
+            {
+                if (e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9)
+                {
+                    if (e.KeyCode != Keys.Back)
+                    {
+                        depthNotNumber = true;
+                    }
+                }
+            }
+            if (Control.ModifierKeys == Keys.Shift)
+            {
+                depthNotNumber = true;
+            }
+        }
+
+        private void deskDepthInput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (depthNotNumber) e.Handled = true;
+        }
     }
     
 }

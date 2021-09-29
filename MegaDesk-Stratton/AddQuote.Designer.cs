@@ -29,6 +29,7 @@ namespace MegaDesk_Stratton
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.custNameLbl = new System.Windows.Forms.Label();
             this.custNameInput = new System.Windows.Forms.TextBox();
@@ -44,7 +45,13 @@ namespace MegaDesk_Stratton
             this.rushComboBox = new System.Windows.Forms.ComboBox();
             this.submitQuoteBtn = new System.Windows.Forms.Button();
             this.dateLbl = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.drawersUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -74,6 +81,7 @@ namespace MegaDesk_Stratton
             this.custNameInput.Name = "custNameInput";
             this.custNameInput.Size = new System.Drawing.Size(150, 26);
             this.custNameInput.TabIndex = 1;
+            this.custNameInput.Validating += new System.ComponentModel.CancelEventHandler(this.custNameInput_Validating);
             // 
             // deskWidthLbl
             // 
@@ -91,6 +99,8 @@ namespace MegaDesk_Stratton
             this.deskWidthInput.Name = "deskWidthInput";
             this.deskWidthInput.Size = new System.Drawing.Size(150, 26);
             this.deskWidthInput.TabIndex = 2;
+            this.deskWidthInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.deskWidthInput_KeyDown);
+            this.deskWidthInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.deskWidthInput_KeyPress);
             this.deskWidthInput.Validating += new System.ComponentModel.CancelEventHandler(this.deskWidthInput_Validating);
             // 
             // deskDepthLbl
@@ -109,6 +119,9 @@ namespace MegaDesk_Stratton
             this.deskDepthInput.Name = "deskDepthInput";
             this.deskDepthInput.Size = new System.Drawing.Size(150, 26);
             this.deskDepthInput.TabIndex = 3;
+            this.deskDepthInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.deskDepthInput_KeyDown);
+            this.deskDepthInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.deskDepthInput_KeyPress);
+            this.deskDepthInput.Validating += new System.ComponentModel.CancelEventHandler(this.deskDepthInput_Validating);
             // 
             // drawerCntLbl
             // 
@@ -206,6 +219,18 @@ namespace MegaDesk_Stratton
             this.dateLbl.TabIndex = 9;
             this.dateLbl.Text = "date";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +257,9 @@ namespace MegaDesk_Stratton
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Quote";
             ((System.ComponentModel.ISupportInitialize)(this.drawersUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,5 +282,8 @@ namespace MegaDesk_Stratton
         private System.Windows.Forms.ComboBox rushComboBox;
         private System.Windows.Forms.Button submitQuoteBtn;
         private System.Windows.Forms.Label dateLbl;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
     }
 }
