@@ -31,7 +31,7 @@ namespace MegaDesk_Stratton
         public void SetDepth(int depthInput) { if (ValidatedDepth(depthInput)) depth = depthInput; }
         public bool ValidatedWidth(int widthInput) { if (widthInput > MINWIDTH && widthInput < MAXWIDTH) return true; else return false; }
 
-        public bool ValidatedDepth(int depthInput) { if (depthInput > MINDEPTH && depthInput > MAXDEPTH) return true; else return false; }
+        public bool ValidatedDepth(int depthInput) { if (depthInput > MINDEPTH && depthInput < MAXDEPTH) return true; else return false; }
         public int GetArea() { return area; }
         public void SetArea(int width, int depth) { area = width * depth; }
         public int GetDrawerCount() { return drawerCount; }

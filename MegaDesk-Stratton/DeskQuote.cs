@@ -17,7 +17,7 @@ namespace MegaDesk_Stratton
         private const int OVERSIZESTARTNUM = 1000;
         private const int OVERSIZEHIGHNUM = 2000;
         private DateTime date;// = DateTime.Now;
-        private readonly Desk Desk;
+        private Desk Desk;//readonly
 
         public DeskQuote()
         {
@@ -40,7 +40,7 @@ namespace MegaDesk_Stratton
 
         public int GetRush() { return rush; }
         public void SetRush(int rushNum) { rushNum = rush; }
-       //public void SetDesk(Desk desk) { Desk = desk; }
+       public void SetDesk(Desk desk) { Desk = desk; }
         public Desk GetDesk() { return Desk; }
 
         public int GetQuote() { return quote; }

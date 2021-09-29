@@ -38,6 +38,9 @@ namespace MegaDesk_Stratton
             _newDesk.SetWidth(int.Parse(deskWidthInput.Text));
             _newDesk.SetDepth(int.Parse(deskDepthInput.Text));
             _newDesk.SetDrawerCount(Convert.ToInt32(drawersUpDown.Value));
+           
+
+            _newQuote.SetDesk(_newDesk);
 
             //newDesk.SetDesktopMaterial()//TryParse("desktopMatComboBox.Text", out DesktopMaterial );
            // if (rushComboBox.Text != null) {
