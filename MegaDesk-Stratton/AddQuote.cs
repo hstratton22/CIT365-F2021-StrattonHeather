@@ -42,9 +42,13 @@ namespace MegaDesk_Stratton
             _newQuote.SetCustName(custNameInput.Text);
             _newDesk.SetWidth(int.Parse(deskWidthInput.Text));
             _newDesk.SetDepth(int.Parse(deskDepthInput.Text));
-            _newDesk.SetDrawerCount(Convert.ToInt32(drawersUpDown.Value));
+            _newDesk.SetArea(_newDesk.GetWidth(), _newDesk.GetDepth());
+            _newDesk.SetDrawerCount(drawersUpDown.Value);//(Convert.ToInt32(
+                                                         //var drawerCounting = (Convert.ToInt32(drawersUpDown.Value));
+
             var surfaceMat = desktopMatComboBox.Text;
-            MessageBox.Show(surfaceMat);
+            //MessageBox.Show(surfaceMat);
+            var rushTime = rushComboBox.Text;
            
 
             _newQuote.SetDesk(_newDesk);

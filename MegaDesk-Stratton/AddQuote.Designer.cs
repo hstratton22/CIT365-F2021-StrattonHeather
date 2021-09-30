@@ -213,9 +213,9 @@ namespace MegaDesk_Stratton
             this.dateLbl.Location = new System.Drawing.Point(25, 378);
             this.dateLbl.Name = "dateLbl";
             this.dateLbl.Padding = new System.Windows.Forms.Padding(2);
-            this.dateLbl.Size = new System.Drawing.Size(40, 21);
+            this.dateLbl.Size = new System.Drawing.Size(16, 21);
             this.dateLbl.TabIndex = 9;
-            this.dateLbl.Text = "date";
+            this.dateLbl.Text = " ";
             // 
             // errorProvider1
             // 

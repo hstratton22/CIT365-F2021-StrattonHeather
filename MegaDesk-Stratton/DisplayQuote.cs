@@ -19,19 +19,7 @@ namespace MegaDesk_Stratton
         public DisplayQuote(DeskQuote dq)
         {
             _deskQuote = dq;
-            displayCustNameBox.Text = this._deskQuote.GetCustName();
-            displayQuoteDrawerCostBox.Text = _deskQuote.CalcDrawerCost().ToString();
-            displayQuoteRushCostBox.Text = _deskQuote.CalcRushCost().ToString();
-            displayQuoteRushBox.Text = _deskQuote.GetRush().ToString();
-            displayQuoteWidthBox.Text = _deskQuote.GetDesk().GetWidth().ToString();
-            displayQuoteDepthBox.Text = _deskQuote.GetDesk().GetDepth().ToString();
-            displayQuoteAreaBox.Text = _deskQuote.GetDesk().GetArea().ToString();
-            displayQuoteAreaCostBox.Text = _deskQuote.AreaTotalCost().ToString();
-            displayQuoteDateBox.Text = _deskQuote.GetDate().ToString();
-            displayQuoteDrawerCostBox.Text = _deskQuote.CalcDrawerCost().ToString();
 
-
-            //setValues();
             InitializeComponent();
         }
 
@@ -47,14 +35,29 @@ namespace MegaDesk_Stratton
         private void displayQuoteMenuBtn_Click(object sender, EventArgs e)
         {
             //why not working?
-           // MainMenu viewMainMenu = (MainMenu)Tag;
+            //System.InvalidCastException: 'Unable to cast object of type 'MegaDesk_Stratton.AddQuote' to type 
+            //MainMenu viewMainMenu = (MainMenu)Tag;
             //viewMainMenu.Tag = this;
-           // viewMainMenu.Show();
-            //this.Close();
+            //viewMainMenu.Show();
+            this.Close();
         }
         private void setValues()
         {
 
+        }
+
+        private void DisplayQuote_Load(object sender, EventArgs e)
+        {
+            displayCustNameBox.Text =  _deskQuote.GetCustName();
+            displayQuoteDrawerCntBox.Text = _deskQuote.GetDesk().GetDrawerCount().ToString();
+            displayQuoteRushCostBox.Text = _deskQuote.CalcRushCost().ToString();
+            displayQuoteRushBox.Text = _deskQuote.GetRush().ToString();
+            displayQuoteWidthBox.Text = _deskQuote.GetDesk().GetWidth().ToString();
+            displayQuoteDepthBox.Text = _deskQuote.GetDesk().GetDepth().ToString();
+            displayQuoteAreaBox.Text = _deskQuote.GetDesk().GetArea().ToString();
+            displayQuoteAreaCostBox.Text = _deskQuote.AreaTotalCost().ToString();
+            displayQuoteDateBox.Text = _deskQuote.GetDate().ToString();
+            displayQuoteDrawerCostBox.Text = _deskQuote.CalcDrawerCost().ToString();
         }
 
         /*private void displayQuoteWidthBox_Click(object sender, EventArgs e)

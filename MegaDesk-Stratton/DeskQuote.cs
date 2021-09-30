@@ -9,14 +9,14 @@ namespace MegaDesk_Stratton
     public class DeskQuote
     {
         private string custName;
-        private int rush ;
+        private int rush;
         private int quote;
         private const int BASECOST = 200;
         private const int PERDRAWER = 50;
         private const int OVERSIZESURFACE = 1;
         private const int OVERSIZESTARTNUM = 1000;
         private const int OVERSIZEHIGHNUM = 2000;
-        private DateTime date;// = DateTime.Now;
+        private DateTime date ;// = DateTime.Now;
         private Desk Desk;//readonly
 
         public DeskQuote()
@@ -36,7 +36,7 @@ namespace MegaDesk_Stratton
         {
             this.date = date;
         }
-        public DateTime GetDate() { return date; }
+        public DateTime GetDate() { return date; }//.ToString("dd MMMM yyyy");
 
         public int GetRush() { return rush; }
         public void SetRush(int rushNum) { rushNum = rush; }

@@ -42,7 +42,7 @@ namespace MegaDesk_Stratton
             this.displayQuoteAreaCostLbl = new System.Windows.Forms.Label();
             this.displayQuoteAreaCostBox = new System.Windows.Forms.Label();
             this.displayQuoteDrawerCountLbl = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.displayQuoteDrawerCntBox = new System.Windows.Forms.Label();
             this.displayQuoteDrawerCostLbl = new System.Windows.Forms.Label();
             this.displayQuoteDrawerCostBox = new System.Windows.Forms.Label();
             this.displayQuoteMatLbl = new System.Windows.Forms.Label();
@@ -63,6 +63,10 @@ namespace MegaDesk_Stratton
             this.displayQuoteHLine5 = new System.Windows.Forms.Label();
             this.displayQuoteHLine2 = new System.Windows.Forms.Label();
             this.displayQuoteMenuBtn = new System.Windows.Forms.Button();
+            this.dollar1 = new System.Windows.Forms.Label();
+            this.dollar2 = new System.Windows.Forms.Label();
+            this.dollar3 = new System.Windows.Forms.Label();
+            this.dollar4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // displayClose
@@ -99,7 +103,7 @@ namespace MegaDesk_Stratton
             // 
             this.displayQuoteDateBox.AutoSize = true;
             this.displayQuoteDateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayQuoteDateBox.Location = new System.Drawing.Point(269, 65);
+            this.displayQuoteDateBox.Location = new System.Drawing.Point(195, 61);
             this.displayQuoteDateBox.Name = "displayQuoteDateBox";
             this.displayQuoteDateBox.Size = new System.Drawing.Size(41, 20);
             this.displayQuoteDateBox.TabIndex = 3;
@@ -123,7 +127,6 @@ namespace MegaDesk_Stratton
             this.displayQuoteWidthBox.TabIndex = 5;
             this.displayQuoteWidthBox.Text = "width";
             this.displayQuoteWidthBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            //this.displayQuoteWidthBox.Click += new System.EventHandler(this.displayQuoteWidthBox_Click);
             // 
             // displayQuoteDepthLbl
             // 
@@ -156,7 +159,7 @@ namespace MegaDesk_Stratton
             // displayQuoteAreaBox
             // 
             this.displayQuoteAreaBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayQuoteAreaBox.Location = new System.Drawing.Point(410, 185);
+            this.displayQuoteAreaBox.Location = new System.Drawing.Point(436, 184);
             this.displayQuoteAreaBox.Name = "displayQuoteAreaBox";
             this.displayQuoteAreaBox.Size = new System.Drawing.Size(100, 23);
             this.displayQuoteAreaBox.TabIndex = 9;
@@ -174,11 +177,10 @@ namespace MegaDesk_Stratton
             // 
             // displayQuoteAreaCostBox
             // 
-            this.displayQuoteAreaCostBox.AutoSize = true;
             this.displayQuoteAreaCostBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayQuoteAreaCostBox.Location = new System.Drawing.Point(430, 223);
+            this.displayQuoteAreaCostBox.Location = new System.Drawing.Point(436, 223);
             this.displayQuoteAreaCostBox.Name = "displayQuoteAreaCostBox";
-            this.displayQuoteAreaCostBox.Size = new System.Drawing.Size(80, 20);
+            this.displayQuoteAreaCostBox.Size = new System.Drawing.Size(100, 23);
             this.displayQuoteAreaCostBox.TabIndex = 11;
             this.displayQuoteAreaCostBox.Text = "Area Cost";
             this.displayQuoteAreaCostBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -192,15 +194,15 @@ namespace MegaDesk_Stratton
             this.displayQuoteDrawerCountLbl.TabIndex = 12;
             this.displayQuoteDrawerCountLbl.Text = "Drawer Count: ";
             // 
-            // label1
+            // displayQuoteDrawerCntBox
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(146, 262);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 23);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "drawers";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.displayQuoteDrawerCntBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayQuoteDrawerCntBox.Location = new System.Drawing.Point(146, 262);
+            this.displayQuoteDrawerCntBox.Name = "displayQuoteDrawerCntBox";
+            this.displayQuoteDrawerCntBox.Size = new System.Drawing.Size(90, 23);
+            this.displayQuoteDrawerCntBox.TabIndex = 13;
+            this.displayQuoteDrawerCntBox.Text = "drawers";
+            this.displayQuoteDrawerCntBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // displayQuoteDrawerCostLbl
             // 
@@ -214,9 +216,9 @@ namespace MegaDesk_Stratton
             // displayQuoteDrawerCostBox
             // 
             this.displayQuoteDrawerCostBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayQuoteDrawerCostBox.Location = new System.Drawing.Point(449, 296);
+            this.displayQuoteDrawerCostBox.Location = new System.Drawing.Point(436, 295);
             this.displayQuoteDrawerCostBox.Name = "displayQuoteDrawerCostBox";
-            this.displayQuoteDrawerCostBox.Size = new System.Drawing.Size(61, 23);
+            this.displayQuoteDrawerCostBox.Size = new System.Drawing.Size(100, 23);
             this.displayQuoteDrawerCostBox.TabIndex = 15;
             this.displayQuoteDrawerCostBox.Text = "Cost";
             this.displayQuoteDrawerCostBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -252,9 +254,9 @@ namespace MegaDesk_Stratton
             // displayQuoteMatCostBox
             // 
             this.displayQuoteMatCostBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayQuoteMatCostBox.Location = new System.Drawing.Point(434, 367);
+            this.displayQuoteMatCostBox.Location = new System.Drawing.Point(438, 369);
             this.displayQuoteMatCostBox.Name = "displayQuoteMatCostBox";
-            this.displayQuoteMatCostBox.Size = new System.Drawing.Size(76, 24);
+            this.displayQuoteMatCostBox.Size = new System.Drawing.Size(100, 23);
             this.displayQuoteMatCostBox.TabIndex = 19;
             this.displayQuoteMatCostBox.Text = "Cost";
             this.displayQuoteMatCostBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -291,9 +293,9 @@ namespace MegaDesk_Stratton
             // displayQuoteRushCostBox
             // 
             this.displayQuoteRushCostBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayQuoteRushCostBox.Location = new System.Drawing.Point(434, 448);
+            this.displayQuoteRushCostBox.Location = new System.Drawing.Point(436, 448);
             this.displayQuoteRushCostBox.Name = "displayQuoteRushCostBox";
-            this.displayQuoteRushCostBox.Size = new System.Drawing.Size(76, 23);
+            this.displayQuoteRushCostBox.Size = new System.Drawing.Size(100, 23);
             this.displayQuoteRushCostBox.TabIndex = 23;
             this.displayQuoteRushCostBox.Text = "Cost";
             this.displayQuoteRushCostBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -310,9 +312,9 @@ namespace MegaDesk_Stratton
             // displayQuoteTotalCostBox
             // 
             this.displayQuoteTotalCostBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayQuoteTotalCostBox.Location = new System.Drawing.Point(424, 529);
+            this.displayQuoteTotalCostBox.Location = new System.Drawing.Point(438, 528);
             this.displayQuoteTotalCostBox.Name = "displayQuoteTotalCostBox";
-            this.displayQuoteTotalCostBox.Size = new System.Drawing.Size(86, 24);
+            this.displayQuoteTotalCostBox.Size = new System.Drawing.Size(100, 23);
             this.displayQuoteTotalCostBox.TabIndex = 25;
             this.displayQuoteTotalCostBox.Text = "Cost";
             this.displayQuoteTotalCostBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -321,7 +323,7 @@ namespace MegaDesk_Stratton
             // 
             this.displayQuoteDollarLbl.AutoSize = true;
             this.displayQuoteDollarLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayQuoteDollarLbl.Location = new System.Drawing.Point(410, 529);
+            this.displayQuoteDollarLbl.Location = new System.Drawing.Point(424, 528);
             this.displayQuoteDollarLbl.Name = "displayQuoteDollarLbl";
             this.displayQuoteDollarLbl.Size = new System.Drawing.Size(18, 20);
             this.displayQuoteDollarLbl.TabIndex = 26;
@@ -385,15 +387,63 @@ namespace MegaDesk_Stratton
             this.displayQuoteMenuBtn.Name = "displayQuoteMenuBtn";
             this.displayQuoteMenuBtn.Size = new System.Drawing.Size(85, 29);
             this.displayQuoteMenuBtn.TabIndex = 33;
-            this.displayQuoteMenuBtn.Text = "Menu";
+            this.displayQuoteMenuBtn.Text = "Close";
             this.displayQuoteMenuBtn.UseVisualStyleBackColor = false;
             this.displayQuoteMenuBtn.Click += new System.EventHandler(this.displayQuoteMenuBtn_Click);
+            // 
+            // dollar1
+            // 
+            this.dollar1.AutoSize = true;
+            this.dollar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dollar1.Location = new System.Drawing.Point(424, 223);
+            this.dollar1.Name = "dollar1";
+            this.dollar1.Size = new System.Drawing.Size(18, 20);
+            this.dollar1.TabIndex = 34;
+            this.dollar1.Text = "$";
+            this.dollar1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dollar2
+            // 
+            this.dollar2.AutoSize = true;
+            this.dollar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dollar2.Location = new System.Drawing.Point(424, 295);
+            this.dollar2.Name = "dollar2";
+            this.dollar2.Size = new System.Drawing.Size(18, 20);
+            this.dollar2.TabIndex = 35;
+            this.dollar2.Text = "$";
+            this.dollar2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dollar3
+            // 
+            this.dollar3.AutoSize = true;
+            this.dollar3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dollar3.Location = new System.Drawing.Point(424, 369);
+            this.dollar3.Name = "dollar3";
+            this.dollar3.Size = new System.Drawing.Size(18, 20);
+            this.dollar3.TabIndex = 36;
+            this.dollar3.Text = "$";
+            this.dollar3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dollar4
+            // 
+            this.dollar4.AutoSize = true;
+            this.dollar4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dollar4.Location = new System.Drawing.Point(424, 448);
+            this.dollar4.Name = "dollar4";
+            this.dollar4.Size = new System.Drawing.Size(18, 20);
+            this.dollar4.TabIndex = 37;
+            this.dollar4.Text = "$";
+            this.dollar4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DisplayQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(573, 631);
+            this.Controls.Add(this.dollar4);
+            this.Controls.Add(this.dollar3);
+            this.Controls.Add(this.dollar2);
+            this.Controls.Add(this.dollar1);
             this.Controls.Add(this.displayQuoteMenuBtn);
             this.Controls.Add(this.displayQuoteHLine2);
             this.Controls.Add(this.displayQuoteHLine5);
@@ -414,7 +464,7 @@ namespace MegaDesk_Stratton
             this.Controls.Add(this.displayQuoteMatLbl);
             this.Controls.Add(this.displayQuoteDrawerCostBox);
             this.Controls.Add(this.displayQuoteDrawerCostLbl);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.displayQuoteDrawerCntBox);
             this.Controls.Add(this.displayQuoteDrawerCountLbl);
             this.Controls.Add(this.displayQuoteAreaCostBox);
             this.Controls.Add(this.displayQuoteAreaCostLbl);
@@ -433,6 +483,7 @@ namespace MegaDesk_Stratton
             this.Name = "DisplayQuote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Display Quote";
+            this.Load += new System.EventHandler(this.DisplayQuote_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,7 +504,7 @@ namespace MegaDesk_Stratton
         private System.Windows.Forms.Label displayQuoteAreaCostLbl;
         private System.Windows.Forms.Label displayQuoteAreaCostBox;
         private System.Windows.Forms.Label displayQuoteDrawerCountLbl;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label displayQuoteDrawerCntBox;
         private System.Windows.Forms.Label displayQuoteDrawerCostLbl;
         private System.Windows.Forms.Label displayQuoteDrawerCostBox;
         private System.Windows.Forms.Label displayQuoteMatLbl;
@@ -474,5 +525,9 @@ namespace MegaDesk_Stratton
         private System.Windows.Forms.Label displayQuoteHLine5;
         private System.Windows.Forms.Label displayQuoteHLine2;
         private System.Windows.Forms.Button displayQuoteMenuBtn;
+        private System.Windows.Forms.Label dollar1;
+        private System.Windows.Forms.Label dollar2;
+        private System.Windows.Forms.Label dollar3;
+        private System.Windows.Forms.Label dollar4;
     }
 }

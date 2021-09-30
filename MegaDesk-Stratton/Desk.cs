@@ -13,12 +13,12 @@ namespace MegaDesk_Stratton
         private const int MINDEPTH = 12;
         private const int MAXDEPTH = 48;
         private int width = 0;
-        private int widthInput = 0;
+       // private int widthInput = 0;
         private int depth = 0;
-        private int depthInput = 0;
-        private int drawerCount = 0;
-        private int area = 0;
-        private DesktopMaterial desktopMaterial;
+        //private int depthInput = 0;
+        private int drawerCount;
+        private int area;
+        private DesktopMaterial desktopMaterial = DesktopMaterial.pine;
 
         public Desk() { }
         public int GetMINWIDTH() { return MINWIDTH; }
@@ -35,7 +35,7 @@ namespace MegaDesk_Stratton
         public int GetArea() { return area; }
         public void SetArea(int width, int depth) { area = width * depth; }
         public int GetDrawerCount() { return drawerCount; }
-        public void SetDrawerCount(int count) { drawerCount = count; }
+        public void SetDrawerCount(decimal count) { drawerCount = Decimal.ToInt32(count); }
         public DesktopMaterial GetDesktopMaterial() {return desktopMaterial;}
         public void SetDesktopMaterial( DesktopMaterial sm)
         {
