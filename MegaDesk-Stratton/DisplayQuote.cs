@@ -9,12 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MegaDesk_Stratton
-{
+{/// <summary>
+/// DisplayQuote form including constructor and methods to display _deskQuote to user
+/// </summary>
     public partial class DisplayQuote : Form
 
     {
         private DeskQuote _deskQuote;
-
+        /// <summary>
+        /// receives Deskquote from AddQuote
+        /// </summary>
+        /// <param name="dq"></param>
 
         public DisplayQuote(DeskQuote dq)
         {
@@ -31,7 +36,11 @@ namespace MegaDesk_Stratton
            // viewMainMenu.Show();
            // this.Close();
         }
-
+        /// <summary>
+        /// closes the quote form box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void displayQuoteMenuBtn_Click(object sender, EventArgs e)
         {
             //why not working?
@@ -41,11 +50,17 @@ namespace MegaDesk_Stratton
             //viewMainMenu.Show();
             this.Close();
             Application.Exit();
-        }
+        }/// <summary>
+        /// replaces with DisplayQuote_Load
+        /// </summary>
         private void setValues()
         {
 
-        }
+        }/// <summary>
+        /// loads all the data from _deskQuote and assigns to labels for user view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void DisplayQuote_Load(object sender, EventArgs e)
         {

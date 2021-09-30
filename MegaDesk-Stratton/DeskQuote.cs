@@ -5,7 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MegaDesk_Stratton
-{
+{/// <summary>
+/// DeskQuote class including constructors
+/// get; set;
+/// and calculation methods
+/// </summary>
     public class DeskQuote
     {
         private string custName;
@@ -45,6 +49,10 @@ namespace MegaDesk_Stratton
 
         public int GetQuote() { return quote; }
         public void setQuote() { quote = AreaTotalCost() + CalcDrawerCost() + CalcRushCost() + CalcSurfaceCost(); }
+        /// <summary>
+        /// w*d of Desk, and calculates cost
+        /// </summary>
+        /// <returns></returns>
         public int AreaTotalCost()
         {
             int oversizedArea = 0;
@@ -54,11 +62,17 @@ namespace MegaDesk_Stratton
             }
                 return BASECOST + (OVERSIZESURFACE * oversizedArea);
             
-        }
+        }/// <summary>
+        /// calculates total cost of drawers
+        /// </summary>
+        /// <returns></returns>
         public int CalcDrawerCost()
         {
             return PERDRAWER * Desk.GetDrawerCount();
-        }
+        }/// <summary>
+        /// calculates total cost of rush order 
+        /// </summary>
+        /// <returns></returns>
         public int CalcRushCost() { 
             int result = 0;
             switch(rush)
@@ -83,7 +97,10 @@ namespace MegaDesk_Stratton
 
             }
             return result;
-        }
+        }/// <summary>
+        /// calculates surface cost using enum DesktopMaterial
+        /// </summary>
+        /// <returns></returns>
         public int CalcSurfaceCost()
         {
             int result = 0; 
@@ -96,8 +113,12 @@ namespace MegaDesk_Stratton
                 case DesktopMaterial.veneer: result = 125; break;
         } return result;
             
-
-}
+            
+}/// <summary>
+/// calculates surface cost using string from combobox
+/// </summary>
+/// <param name="selectedSurface"></param>
+/// <returns></returns>
         public int CalcSurfaceCost(string selectedSurface)
         {
             int result = 0;
@@ -113,7 +134,10 @@ namespace MegaDesk_Stratton
 
 
         }
-
+        /// <summary>
+        /// override ToString() including custName for reference
+        /// </summary>
+        /// <returns></returns>
 
 
 

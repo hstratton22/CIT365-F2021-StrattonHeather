@@ -5,7 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MegaDesk_Stratton
-{
+{/// <summary>
+/// desk class 
+/// get;set;
+/// and methods
+/// </summary>
     public class Desk
     {
         private const int MINWIDTH = 24;
@@ -35,13 +39,20 @@ namespace MegaDesk_Stratton
         public int GetArea() { return area; }
         public void SetArea(int width, int depth) { area = width * depth; }
         public int GetDrawerCount() { return drawerCount; }
+        /// <summary>
+        /// numericupdown uses decimal so converted here
+        /// </summary>
+        /// <param name="count"></param>
         public void SetDrawerCount(decimal count) { drawerCount = Decimal.ToInt32(count); }
         public DesktopMaterial GetDesktopMaterial() {return desktopMaterial;}
         public void SetDesktopMaterial( DesktopMaterial sm)
         {
             desktopMaterial = sm;
 
-        }
+        }/// <summary>
+        /// gets string from combobox selection and sets the value to the enum
+        /// </summary>
+        /// <param name="sm"></param>
         public void SetDesktopMaterial(string sm)
         {
             switch (sm)
@@ -53,7 +64,10 @@ namespace MegaDesk_Stratton
                 case "veneer": desktopMaterial = DesktopMaterial.veneer; break;
                 default: desktopMaterial = DesktopMaterial.pine; break;
             }
-        }
+        }/// <summary>
+        /// override of ToString() for testing references
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return base.ToString(); // + "width: " + width + "\n" + " depth: "+ depth;
@@ -62,7 +76,9 @@ namespace MegaDesk_Stratton
 
 
 
-    }
+    }/// <summary>
+    /// surface options enum
+    /// </summary>
     public enum DesktopMaterial
     {
         laminate, oak, pine, rosewood, veneer
