@@ -52,6 +52,7 @@ namespace MegaDesk_Stratton
            
 
             _newQuote.SetDesk(_newDesk);
+            _newQuote.setQuote();
 
                      
         }
@@ -218,14 +219,37 @@ namespace MegaDesk_Stratton
             if (depthNotNumber) e.Handled = true;
         }
 
-       /* private void desktopMatComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {//not set to instance of object?
-            ComboBox cmb = (ComboBox)sender;
-            int selectedIndex = cmb.SelectedIndex;
-            int selectedValue = (int)cmb.SelectedValue;
-            MessageBox.Show( selectedIndex + ", " + selectedValue);
-            
-        }*/
+        private void desktopMatComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            //ComboBox senderComboBox = (ComboBox)sender;
+            string selectedMaterial = this.desktopMatComboBox.SelectedItem.ToString();
+            selectedMaterial.Trim();
+            _newDesk.SetDesktopMaterial(selectedMaterial);
+            //MessageBox.Show(selectedMaterial);
+        }
+
+        private void rushComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            string selectedRush = this.rushComboBox.SelectedItem.ToString();
+            selectedRush.Trim();
+            try
+            {
+                _newQuote.SetRush(int.Parse(selectedRush));
+                //MessageBox.Show(selectedRush);
+            }
+            catch (Exception exc) {_newQuote.SetRush(0);
+                //MessageBox.Show(selectedRush.ToString());
+                }
+        }
+
+        /* private void desktopMatComboBox_SelectedIndexChanged(object sender, EventArgs e)
+         {//not set to instance of object?
+             ComboBox cmb = (ComboBox)sender;
+             int selectedIndex = cmb.SelectedIndex;
+             int selectedValue = (int)cmb.SelectedValue;
+             MessageBox.Show( selectedIndex + ", " + selectedValue);
+
+         }*/
     }
     
 }

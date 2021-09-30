@@ -40,6 +40,7 @@ namespace MegaDesk_Stratton
             //viewMainMenu.Tag = this;
             //viewMainMenu.Show();
             this.Close();
+            Application.Exit();
         }
         private void setValues()
         {
@@ -50,6 +51,7 @@ namespace MegaDesk_Stratton
         {
             displayCustNameBox.Text =  _deskQuote.GetCustName();
             displayQuoteDrawerCntBox.Text = _deskQuote.GetDesk().GetDrawerCount().ToString();
+            displayQuoteRushBox.Text = _deskQuote.GetRush().ToString();
             displayQuoteRushCostBox.Text = _deskQuote.CalcRushCost().ToString();
             displayQuoteRushBox.Text = _deskQuote.GetRush().ToString();
             displayQuoteWidthBox.Text = _deskQuote.GetDesk().GetWidth().ToString();
@@ -58,6 +60,10 @@ namespace MegaDesk_Stratton
             displayQuoteAreaCostBox.Text = _deskQuote.AreaTotalCost().ToString();
             displayQuoteDateBox.Text = _deskQuote.GetDate().ToString();
             displayQuoteDrawerCostBox.Text = _deskQuote.CalcDrawerCost().ToString();
+            displayQuoteMatBox.Text = _deskQuote.GetDesk().GetDesktopMaterial().ToString();
+            displayQuoteMatCostBox.Text = _deskQuote.CalcSurfaceCost().ToString();
+            displayQuoteTotalCostBox.Text = _deskQuote.GetQuote().ToString();
+
         }
 
         /*private void displayQuoteWidthBox_Click(object sender, EventArgs e)

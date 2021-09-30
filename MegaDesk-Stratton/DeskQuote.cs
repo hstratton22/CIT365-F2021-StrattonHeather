@@ -39,7 +39,7 @@ namespace MegaDesk_Stratton
         public DateTime GetDate() { return date; }//.ToString("dd MMMM yyyy");
 
         public int GetRush() { return rush; }
-        public void SetRush(int rushNum) { rushNum = rush; }
+        public void SetRush(int rushNum) {  rush= rushNum; }
        public void SetDesk(Desk desk) { Desk = desk; }
         public Desk GetDesk() { return Desk; }
 
@@ -77,6 +77,9 @@ namespace MegaDesk_Stratton
                     else if (Desk.GetArea() > OVERSIZESTARTNUM && Desk.GetArea() < OVERSIZEHIGHNUM) result = 35;
                     else result =40;
                     break;
+                 default: 
+                    result = 0;
+                    break;
 
             }
             return result;
@@ -95,6 +98,25 @@ namespace MegaDesk_Stratton
             
 
 }
+        public int CalcSurfaceCost(string selectedSurface)
+        {
+            int result = 0;
+            switch (selectedSurface)
+            {
+                case "laminate": result = 100; break;
+                case "oak": result = 200; break;
+                case "pine": result = 50; break;
+                case "rosewood": result = 300; break;
+                case "veneer": result = 125; break;
+            }
+            return result;
+
+
+        }
+
+
+
+
         public override string ToString()
         {
             return base.ToString()+"\n"+

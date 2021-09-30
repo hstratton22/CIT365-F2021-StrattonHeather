@@ -42,6 +42,18 @@ namespace MegaDesk_Stratton
             desktopMaterial = sm;
 
         }
+        public void SetDesktopMaterial(string sm)
+        {
+            switch (sm)
+            {
+                case "laminate":desktopMaterial= DesktopMaterial.laminate; break;
+                case "oak": desktopMaterial= DesktopMaterial.oak; break;
+                case "pine": desktopMaterial = DesktopMaterial.pine; break;
+                case "rosewood": desktopMaterial = DesktopMaterial.rosewood; break;
+                case "veneer": desktopMaterial = DesktopMaterial.veneer; break;
+                default: desktopMaterial = DesktopMaterial.pine; break;
+            }
+        }
         public override string ToString()
         {
             return base.ToString(); // + "width: " + width + "\n" + " depth: "+ depth;

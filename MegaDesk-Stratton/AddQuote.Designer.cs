@@ -167,6 +167,8 @@ namespace MegaDesk_Stratton
             this.desktopMatComboBox.Name = "desktopMatComboBox";
             this.desktopMatComboBox.Size = new System.Drawing.Size(150, 28);
             this.desktopMatComboBox.TabIndex = 5;
+            this.desktopMatComboBox.Text = "Pine";
+            this.desktopMatComboBox.SelectionChangeCommitted += new System.EventHandler(this.desktopMatComboBox_SelectionChangeCommitted);
             // 
             // rushLbl
             // 
@@ -189,6 +191,7 @@ namespace MegaDesk_Stratton
             this.rushComboBox.Name = "rushComboBox";
             this.rushComboBox.Size = new System.Drawing.Size(150, 28);
             this.rushComboBox.TabIndex = 6;
+            this.rushComboBox.SelectionChangeCommitted += new System.EventHandler(this.rushComboBox_SelectionChangeCommitted);
             // 
             // submitQuoteBtn
             // 
