@@ -25,6 +25,7 @@ namespace RazorPagesMovie2.Pages.Movies
         [BindProperty(SupportsGet = true)]
         public string MovieGenre { get; set; }
 
+        //data is changed for search but not updating to the screen
         public async Task OnGetAsync()
         {
             // Use LINQ to get list of genres.
