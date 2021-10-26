@@ -1,0 +1,116 @@
+﻿@page
+@model MyScriptureJournal.Pages.Scriptures.IndexModel
+
+@{
+    ViewData["Title"] = "Inspirational Scriptures";
+}
+<!--<style>
+
+    a:hover {
+        color:white;
+    }
+
+</style>-->
+<h1>Scriptures</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<!--<form>
+    <p>
+        <select asp-for="ScriptureTopic" asp-items="Model.Topics">
+            <option value="">All</option>
+        </select>
+        Book: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>-->
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Book:
+            <input type="text" name="SearchString" placeholder="book" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+
+
+        </p>
+    </div>
+</form>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Topic:
+            <input type="text" placeholder="topic" name="ScriptureTopic" value="@Model.CurrentFilter2" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+
+
+        </p>
+    </div>
+</form>
+<a asp-page="./Index">Back to full List</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.BookSort">
+                    @Html.DisplayNameFor(model => model.Scripture[0].Book)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scripture[0].Chapter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scripture[0].Verse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scripture[0].Notes)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DateSort">
+                    @Html.DisplayNameFor(model => model.Scripture[0].AddedDate)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Scripture[0].Topic)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Scripture)
+        {
+            <tr class="table-dark">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Chapter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Verse)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Topic)
+                </td>
+                <td>
+                    <!--
+                    -->
+                    <button class="btn btn-outline-info"
+                         asp-page="./Details" asp-route-id="@item.ID">Details
+                    </button> |
+                    <button class="btn btn-outline-warning"
+                        asp-page="./Edit" asp-route-id="@item.ID">Edit
+                    </button> |
+                    <button class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.ID">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
