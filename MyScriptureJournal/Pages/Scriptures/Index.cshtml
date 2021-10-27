@@ -102,13 +102,13 @@
                 <td>
                     <!--
                     -->
-                    <button class="btn btn-outline-info"
+                    <a class="btn btn-outline-info"
                          asp-page="./Details" asp-route-id="@item.ID">Details
-                    </button> |
-                    <button class="btn btn-outline-warning"
+                    </a> |
+                    <a class="btn btn-outline-warning"
                         asp-page="./Edit" asp-route-id="@item.ID">Edit
-                    </button> |
-                    <button class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.ID">Delete</button>
+                    </a> |
+                    <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
                 </td>
             </tr>
         }
