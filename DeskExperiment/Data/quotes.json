@@ -1,0 +1,55 @@
+[
+  {
+    "CustomerName": "John Lennon",
+    "date": "October 12, 2021",
+    "RushDays": 3,
+    "Desk": {
+      "desktopMaterial": 1,
+      "Width": 42,
+      "Depth": 42,
+      "Area": 1764,
+      "DrawerCount": 5
+    },
+    "Cost": 1484
+  },
+  {
+    "CustomerName": "Paul McCartney",
+    "date": "October 12, 2021",
+    "RushDays": 7,
+    "Desk": {
+      "desktopMaterial": 4,
+      "Width": 37,
+      "Depth": 13,
+      "Area": 481,
+      "DrawerCount": 2
+    },
+    "Cost": 455
+  },
+  {
+    "CustomerName": "George Harrison",
+    "date": "October 12, 2021",
+    "RushDays": 0,
+    "Desk": {
+      "desktopMaterial": 3,
+      "Width": 96,
+      "Depth": 48,
+      "Area": 4608,
+      "DrawerCount": 7
+    },
+    "Cost": 4458
+  },
+  {
+    "CustomerName": "Ringo Starky",
+    "date": "October 12, 2021",
+    "RushDays": 5,
+    "Desk": {
+      "desktopMaterial": 2,
+      "Width": 28,
+      "Depth": 44,
+      "Area": 1232,
+      "DrawerCount": 3
+    },
+    "Cost": 682
+  }
+
+]
