@@ -24,12 +24,30 @@ namespace DeskExperiment.Models
         [StringLength(60, MinimumLength = 3)]
         [Required]
         public string CustomerName { get; set; }
-        public String date { get; set; }
-        // [DataType(DataType.Date)]
-        //public DateTime Date {get;set;}
+        //public String date { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime Date {get;set;}
         public int RushDays { get; set; }
         //?[BindProperty]
-        public Desk Desk { get; set; }
+        //public Desk Desk { get; set; }
+        [EnumDataType(typeof(DesktopMaterial))]
+        public DesktopMaterial desktopMaterial { get; set; }
+        [Range(24, 96)]
+        [Required]
+        public int Width { get; set; }
+        [Range(12, 48)]
+        [Required]
+        public int Depth { get; set; }
+        public int Area
+        {
+            //get { return _width * _depth; }
+            get { return Width * Depth; }
+        }
+        [Range(0, 7)]
+        [Required]
+
+        public int DrawerCount { get; set; }
+
         public int Cost
         {
             get
@@ -46,9 +64,9 @@ namespace DeskExperiment.Models
         public int AreaTotalCost()
         {
             int oversizedArea = 0;
-            if (Desk.Area > OversizeLowNum)
+            if (Area > OversizeLowNum)
             {
-                oversizedArea = Desk.Area - OversizeLowNum;
+                oversizedArea = Area - OversizeLowNum;
             }
             return BaseCost + (OversizeSurface * oversizedArea);
 
@@ -59,7 +77,7 @@ namespace DeskExperiment.Models
         /// <returns></returns>
         public int CalcDrawerCost()
         {
-            return PerDrawer * Desk.DrawerCount;
+            return PerDrawer * DrawerCount;
         }
         /// <summary>
         /// calculates total cost of rush order 
@@ -88,8 +106,8 @@ namespace DeskExperiment.Models
                     return result;
             }
 
-            if (Desk.Area < OversizeLowNum) weight = 0;
-            else if (Desk.Area > OversizeLowNum && Desk.Area < OversizeHighNum) weight = 1;
+            if (Area < OversizeLowNum) weight = 0;
+            else if (Area > OversizeLowNum && Area < OversizeHighNum) weight = 1;
             else weight = 2;
 
 
@@ -102,27 +120,27 @@ namespace DeskExperiment.Models
         /// <returns></returns>
         public int CalcSurfaceCost()
         {
-            if (Desk.desktopMaterial == DesktopMaterial.Laminate)
+            if (desktopMaterial == DesktopMaterial.Laminate)
             {
                 return 100;
             }
 
-            if (Desk.desktopMaterial == DesktopMaterial.Oak)
+            if (desktopMaterial == DesktopMaterial.Oak)
             {
                 return 200;
             }
 
-            if (Desk.desktopMaterial == DesktopMaterial.Pine)
+            if (desktopMaterial == DesktopMaterial.Pine)
             {
                 return 50;
             }
 
-            if (Desk.desktopMaterial == DesktopMaterial.Rosewood)
+            if (desktopMaterial == DesktopMaterial.Rosewood)
             {
                 return 300;
             }
 
-            if (Desk.desktopMaterial == DesktopMaterial.Veneer)
+            if (desktopMaterial == DesktopMaterial.Veneer)
             {
                 return 125;
             }
@@ -135,11 +153,11 @@ namespace DeskExperiment.Models
         /// </summary>
         /// <returns></returns>
 
-        public override string ToString()
+        /*public override string ToString()
         {
             return base.ToString() + "\n" +
                "name:" + CustomerName;
-        }
+        }*/
 
         /// <summary>
         /// Opens and Reads the rushorder Price file, then returns it as a 2d Array
@@ -173,6 +191,12 @@ namespace DeskExperiment.Models
 
             return rushShipping;
         }
+        public enum DesktopMaterial
+        {
+            Laminate, Oak, Pine, Rosewood, Veneer
+        }
     }
+
+    
 }
 
