@@ -22,6 +22,7 @@ namespace MvcMovie.Controllers
         // GET: Movies
         public async Task<IActionResult> Index(string movieGenre, string searchString)
         {
+            //sort be release date TODO
             // Use LINQ to get list of genres.
             IQueryable<string> genreQuery = from m in _context.Movie
                                             orderby m.Genre

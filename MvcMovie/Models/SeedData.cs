@@ -25,7 +25,7 @@ namespace MvcMovie.Models
                     {
                         Title = "Meet the Mormons",
                         ReleaseDate = DateTime.Parse("2014-10-10"),
-                        Genre = "Christian",
+                        Genre = "Documentary",
                         Price = 7.99M,
                         Rating = "PG"
                     },
