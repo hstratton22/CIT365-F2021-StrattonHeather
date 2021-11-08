@@ -21,7 +21,7 @@ namespace MvcMovie.Models
         //[StringLength(30)]
         [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$"), Required, StringLength(30)]
         public string Genre { get; set; }
-
+        
         //[Range(1, 100)]
         //[DataType(DataType.Currency)]
         [Range(1, 100), DataType(DataType.Currency)]
@@ -33,5 +33,7 @@ namespace MvcMovie.Models
         [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$"), StringLength(5)]
         public string Rating { get; set; }
         //add image name as string
+        
     }
+    
 }
