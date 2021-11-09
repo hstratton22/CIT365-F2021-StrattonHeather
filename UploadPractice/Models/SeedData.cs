@@ -25,7 +25,7 @@ namespace UploadPractice.Models
                         ReleaseDate = DateTime.Parse("2021-11-9"),
                         Genre = "Genre",
                         Price = 7.99M,
-                        PhotoPath = "~/images/placeholder.jpg"
+                        PhotoPath = "placeholder.jpg"
                     }
                     );
                 context.SaveChanges();
