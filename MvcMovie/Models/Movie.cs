@@ -33,6 +33,8 @@ namespace MvcMovie.Models
         [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$"), StringLength(5)]
         public string Rating { get; set; }
         //add image name as string
+        [Display(Name = "Image")]
+        public string MovieImage { get; set; }
         
     }
     

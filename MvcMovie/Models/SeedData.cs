@@ -27,7 +27,8 @@ namespace MvcMovie.Models
                         ReleaseDate = DateTime.Parse("2014-10-10"),
                         Genre = "Documentary",
                         Price = 7.99M,
-                        Rating = "PG"
+                        Rating = "PG",
+                        MovieImage = "~/images/Meet.jpg"
                     },
 
                     new Movie
@@ -36,7 +37,8 @@ namespace MvcMovie.Models
                         ReleaseDate = DateTime.Parse("2003-1-31"),
                         Genre = "Comedy",
                         Price = 8.99M,
-                        Rating = "PG"
+                        Rating = "PG",
+                        MovieImage = "~/images/TheRM.jpg"
                     },
 
                     new Movie
@@ -45,7 +47,8 @@ namespace MvcMovie.Models
                         ReleaseDate = DateTime.Parse("2000-3-10"),
                         Genre = "Missionary",
                         Price = 9.99M,
-                        Rating = "PG"
+                        Rating = "PG",
+                        MovieImage = "~/images/GodsArmy.jpg"
                     },
 
                     new Movie
@@ -55,6 +58,7 @@ namespace MvcMovie.Models
                         Genre = "Romance",
                         Price = 3.99M,
                         Rating = "PG",
+                        MovieImage = "~/images/OtherSide.jpg"
                     }
                 );
                 context.SaveChanges();

@@ -7,3 +7,7 @@ body {
 .container {
     color:black;
 }
+.movieCover {
+    width:200px;
+    margin:auto;
+}
