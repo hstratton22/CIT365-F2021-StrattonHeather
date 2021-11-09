@@ -1,22 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using UploadPractice.Data;
 using UploadPractice.Models;
+//using Microsoft.AspNetCore.Hosting.IWebHostEnvironment;
 
 namespace UploadPractice.Controllers
 {
     public class MoviesController : Controller
     {
         private readonly UploadPracticeContext _context;
+        [Obsolete]
+        private readonly IHostingEnvironment hostingEnvironment;
 
-        public MoviesController(UploadPracticeContext context)
+        [Obsolete]
+        public MoviesController(UploadPracticeContext context, 
+            IHostingEnvironment hostingEnvironment)
         {
             _context = context;
+            this.hostingEnvironment = hostingEnvironment;
+
         }
 
         // GET: Movies
@@ -86,6 +95,8 @@ namespace UploadPractice.Controllers
         // GET: Movies/Create
         public IActionResult Create()
         {
+           
+            
             return View();
         }
 
@@ -94,15 +105,40 @@ namespace UploadPractice.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,PhotoPath")] Movie movie)
+        [Obsolete]
+        public async Task<IActionResult> Create(MovieCreateViewModel movieModel)//[Bind("Id,Title,ReleaseDate,Genre,Price,PhotoPath")] Movie movie)
         {
-            if (ModelState.IsValid)
+        if (ModelState.IsValid)
+        {
+            string uniqueFileName = null;
+            if (movieModel.Photo != null)
             {
-                _context.Add(movie);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "images");
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + movieModel.Photo.FileName;
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                movieModel.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
             }
-            return View(movie);
+            Movie newMovie = new Movie
+            {
+                Title = movieModel.Title,
+                ReleaseDate = movieModel.ReleaseDate,
+                Genre = movieModel.Genre,
+                Price = movieModel.Price,
+                PhotoPath = uniqueFileName,
+            };
+            _context.Add(newMovie);
+                await _context.SaveChangesAsync();
+                 return RedirectToAction(nameof(Index));
+            }
+
+
+            //if (ModelState.IsValid)
+            //{
+            //    _context.Add(movie);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Index));
+            //}
+            return View();
         }
 
         // GET: Movies/Edit/5
