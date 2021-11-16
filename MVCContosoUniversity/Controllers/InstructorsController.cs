@@ -210,6 +210,7 @@ namespace MVCContosoUniversity.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            
             UpdateInstructorCourses(selectedCourses, instructorToUpdate);
             PopulateAssignedCourseData(instructorToUpdate);
             return View(instructorToUpdate);
